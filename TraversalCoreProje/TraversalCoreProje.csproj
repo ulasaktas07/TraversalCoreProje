@@ -38,10 +38,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
-    <Folder Include="CQRS\Handlers\" />
     <Folder Include="CQRS\Commands\" />
-    <Folder Include="CQRS\Results\" />
-    <Folder Include="CQRS\Queries\" />
     <Folder Include="wwwroot\PdfReport\" />
     <Folder Include="wwwroot\userimages\" />
   </ItemGroup>

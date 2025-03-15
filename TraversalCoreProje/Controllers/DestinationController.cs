@@ -2,9 +2,11 @@
 using EntityLayer.Concrete;
 using DataAccessLayer.Entity_Framework;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TraversalCoreProje.Controllers
 {
+	[AllowAnonymous]
 	public class DestinationController : Controller
 	{
 		DestinationManager dm=new DestinationManager(new EfDestinationDal());

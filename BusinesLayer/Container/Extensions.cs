@@ -4,10 +4,12 @@ using BusinesLayer.Concrete;
 using BusinesLayer.Concrete.ConcreteUow;
 using BusinesLayer.ValidationRules;
 using BusinesLayer.ValidationRules.AnnouncementValidationRules;
+using BusinesLayer.ValidationRules.ContactUs;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Entity_Framework;
 using DataAccessLayer.UnitOfWork;
 using DTOLayer.DTOs.AnnouncementDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -56,8 +58,7 @@ namespace BusinesLayer.Container
 		{
 			services.AddTransient<IValidator<AnnouncementAddDTO>, AnnouncementValidator>();
 			services.AddTransient<IValidator<AnnouncementUpdateDto>, AnnouncementUpdateValidator>();
-
-
+			services.AddTransient<IValidator<SendMessageDto>, SendContactUsValidator>();
 		}
 	}
 }

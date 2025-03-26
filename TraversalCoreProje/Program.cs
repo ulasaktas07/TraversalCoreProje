@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
@@ -31,7 +32,8 @@ x.AddFile($"{Directory.GetCurrentDirectory()}\\LogFile\\log.txt");
 
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
-	.AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+	.AddErrorDescriber<CustomIdentityValidator>().AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider)
+	.AddEntityFrameworkStores<Context>();
 
 builder.Services.AddHttpClient();
 
